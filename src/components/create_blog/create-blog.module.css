@@ -10,4 +10,5 @@
 .content {
   height: 100%;
   flex: 1;
+  padding: 30px;
 }
