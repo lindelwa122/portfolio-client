@@ -15,7 +15,7 @@ const Router = () => {
           element: <CreateBlogIndex /> 
         },
         {
-          path: 'new',
+          path: 'draft/:id/edit',
           element: <BlogEditor />,
         }
       ]
