@@ -11,7 +11,7 @@ const CreateBlog = () => {
         <div className={styles.sidebar}>
           <Sidebar />
         </div>
-        <div>
+        <div className={styles.content}>
           <Outlet />
         </div>
       </main>

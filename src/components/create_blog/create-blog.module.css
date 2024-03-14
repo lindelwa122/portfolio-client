@@ -6,3 +6,8 @@
 .sidebar {
   width: 20%;
 }
+
+.content {
+  height: 100%;
+  flex: 1;
+}
