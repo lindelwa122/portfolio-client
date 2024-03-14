@@ -14,4 +14,24 @@ const createDraft = async () => {
   return blog_id;
 }
 
-export { createDraft };
+const saveDataToServer = async (url, data) => {
+  const response = await fetch(serverURI + url, {
+    headers: { 
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data),
+    method: 'POST',
+  });
+
+  if (!response.ok) {
+    const err = new Error(
+      `Something wrong occurred! The status code is ${response.status}`
+    );
+    err.status = response.status;
+    throw err;
+  }
+
+  return { status: response.status, success: true };
+}
+
+export { createDraft, saveDataToServer };
