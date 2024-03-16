@@ -35,7 +35,7 @@ const useDraftsData = () => {
           throw err;
         }
   
-        const { drafts } = response.json();
+        const { drafts } = await response.json();
         setDrafts(drafts);
       } catch (err) {
         setError(err);
