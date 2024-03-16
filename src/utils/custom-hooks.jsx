@@ -26,21 +26,24 @@ const useDraftsData = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    try {
-      const response = fetch(serverURI + '/blog/drafts');
-      if (!response.ok) {
-        const err = new Error(`Something wrong occurred. Status: ${response.status}.`);
-        err.status = response.status;
-        throw err;
+    const fetchData = async () => {
+      try {
+        const response = await fetch(serverURI + '/blog/drafts');
+        if (!response.ok) {
+          const err = new Error(`Something wrong occurred. Status: ${response.status}.`);
+          err.status = response.status;
+          throw err;
+        }
+  
+        const { drafts } = response.json();
+        setDrafts(drafts);
+      } catch (err) {
+        setError(err);
+      } finally {
+        setLoading(false);
       }
-
-      const { drafts } = response.json();
-      setDrafts(drafts);
-    } catch (err) {
-      setError(err);
-    } finally {
-      setLoading(false);
     }
+    fetchData();
   }, []);
 
   return { drafts, error, loading };
