@@ -1,11 +1,11 @@
-import { useState, useRef } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { formatDistanceToNow, lightFormat } from 'date-fns';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
 import { saveDataToServer } from '../../utils/send-data-to-server';
-import { useInterval } from '../../utils/custom-hooks';
+import { useBlogData, useInterval } from '../../utils/custom-hooks';
 
 const BlogEditor = () => {
   const [form, setForm] = useState({
@@ -150,8 +150,41 @@ const BlogEditor = () => {
     }
   }, 1000 * 30);
 
+  const { error, loading, blog } = useBlogData(id);
+
+  useEffect(() => {
+    if (blog) {
+      setForm({
+        title: blog.title,
+        content: blog.content,
+        schedule: blog.scheduled_to_be_published_on ?? '',
+      });
+
+      setDraftState(prev => ({
+        ...prev, 
+        state: 'saved',
+        lastSaved: new Date(blog.last_saved) 
+      }));
+
+      setPreviousDraft({
+        title: blog.title,
+        content: blog.title
+      });
+    }
+  }, [blog]);
+
   return (
     <>
+      <div>
+      {
+        !blog && 
+          error 
+          ? 'There was an error while loading your data. Check your internet connection and try reloading the page'
+          : loading
+          ? 'Loading your data...'
+          : ''
+      }
+      </div>
       <dialog ref={modalRef}>
         <button onClick={closeModal}>Close Modal</button>
         <input 
@@ -173,7 +206,7 @@ const BlogEditor = () => {
           ? 'Changes not saved.'
           : draftState.state === 'saving'
           ? 'Saving...'
-          : draftState.state === 'saved'
+          : draftState.state === 'saved' && draftState.lastSaved
           ? `Last saved ${
             formatDistanceToNow(draftState.lastSaved)
           }`
