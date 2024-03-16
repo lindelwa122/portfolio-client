@@ -49,8 +49,8 @@ const useDraftsData = () => {
   return { drafts, error, loading };
 }
 
-const useDraftData = (id) => {
-  const [draft, setDraft] = useState(null);
+const useBlogData = (id) => {
+  const [blog, setBlog] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -64,8 +64,8 @@ const useDraftData = (id) => {
           throw err;
         }
 
-        const { draft } = await response.json();
-        setDraft(draft);
+        const { blog } = await response.json();
+        setBlog(blog);
       } catch (err) {
         setError(err);
       } finally {
@@ -75,7 +75,7 @@ const useDraftData = (id) => {
     fetchData();
   }, [id]);
 
-  return { draft, error, loading };
+  return { blog, error, loading };
 }
 
-export { useInterval, useDraftsData, useDraftData };
+export { useInterval, useDraftsData, useBlogData };
