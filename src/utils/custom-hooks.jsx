@@ -57,7 +57,7 @@ const useBlogData = (id) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(serverURI + '/blogs/' + id);
+        const response = await fetch(serverURI + '/blog/' + id);
         if (!response.ok) {
           const err = new Error(`Something wrong occurred. Status: ${response.status}.`);
           err.status = response.status;
