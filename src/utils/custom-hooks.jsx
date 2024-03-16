@@ -23,7 +23,7 @@ const useInterval = (callback, delay) => {
 const useDraftsData = () => {
   const [drafts, setDrafts] = useState(null);
   const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     try {
