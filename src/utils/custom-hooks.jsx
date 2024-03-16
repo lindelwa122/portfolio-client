@@ -49,4 +49,33 @@ const useDraftsData = () => {
   return { drafts, error, loading };
 }
 
-export { useInterval, useDraftsData };
+const useDraftData = (id) => {
+  const [draft, setDraft] = useState(null);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(serverURI + '/blogs/' + id);
+        if (!response.ok) {
+          const err = new Error(`Something wrong occurred. Status: ${response.status}.`);
+          err.status = response.status;
+          throw err;
+        }
+
+        const { draft } = await response.json();
+        setDraft(draft);
+      } catch (err) {
+        setError(err);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchData();
+  }, [id]);
+
+  return { draft, error, loading };
+}
+
+export { useInterval, useDraftsData, useDraftData };
