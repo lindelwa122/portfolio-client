@@ -155,20 +155,20 @@ const BlogEditor = () => {
   useEffect(() => {
     if (blog) {
       setForm({
-        title: blog.title,
-        content: blog.content,
+        title: blog.title ?? '',
+        content: blog.content ?? '',
         schedule: blog.scheduled_to_be_published_on ?? '',
       });
 
       setDraftState(prev => ({
         ...prev, 
         state: 'saved',
-        lastSaved: new Date(blog.last_saved) 
+        lastSaved: blog.last_saved ?? null,
       }));
 
       setPreviousDraft({
         title: blog.title,
-        content: blog.title
+        content: blog.title,
       });
     }
   }, [blog]);
