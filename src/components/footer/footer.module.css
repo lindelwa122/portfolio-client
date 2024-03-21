@@ -1,0 +1,23 @@
+.icon {
+  composes: logo from '../blog_container/blog-container.module.css';
+  font-size: 20px !important;
+}
+
+.copyright {
+  font-size: 0.7rem;
+}
+
+.footer {
+  padding: 20px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  border: 1px dotted saddlebrown;
+}
+
+.socialMediaLinks {
+  display: flex;
+  gap: 10px;
+}
