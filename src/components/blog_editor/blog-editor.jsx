@@ -1,11 +1,14 @@
 import { useEffect, useState, useRef } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { formatDistanceToNow, lightFormat } from 'date-fns';
+import { IoIosArrowDropdownCircle } from 'react-icons/io';
+import { BsXCircleFill } from 'react-icons/bs';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
 import { saveDataToServer } from '../../utils/send-data-to-server';
 import { useBlogData, useInterval } from '../../utils/custom-hooks';
+import styles from './blog-editor.module.css';
 
 const BlogEditor = () => {
   const [form, setForm] = useState({
@@ -185,19 +188,24 @@ const BlogEditor = () => {
           : ''
       }
       </div>
-      <dialog ref={modalRef}>
-        <button onClick={closeModal}>Close Modal</button>
+      <dialog ref={modalRef} className={styles.dialog}>
+        <div className={styles.xWrapper}>
+          <BsXCircleFill onClick={closeModal} className={styles.x} />
+        </div>
         <input 
+          className={styles.input}
           type='datetime-local' 
           name='schedule'
           value={form.schedule} 
           onChange={handleFormChange} 
           min={lightFormat(new Date(), 'yyyy-MM-dd') + 'T08:00'}
         />
-        <button onClick={clearSchedule}>Clear Schedule</button>
-        <button onClick={publish}>Publish</button>
+        <div className={styles.dBtnWrapper}>
+          <button onClick={clearSchedule}>Clear Schedule</button>
+          <button className='secondary-btn' onClick={publish}>Publish</button>
+        </div>
       </dialog>
-      <h1>Edit Draft</h1>
+      <h1 className={styles.h1}>Edit Draft</h1>
       <p>
         {
           draftState.error
@@ -214,12 +222,14 @@ const BlogEditor = () => {
         }
       </p>
       <input 
+        className={styles.input}
         placeholder='Add title' 
         name='title'
         value={form.title} 
         onChange={handleFormChange} 
       />
-      <ReactQuill 
+      <ReactQuill
+        className={styles.editor} 
         theme='snow' 
         value={form.content} 
         onChange={(_v, _d, _s, editor) => {
@@ -227,11 +237,15 @@ const BlogEditor = () => {
         }} 
       />
       <div>
-        <div>
+        <div className={styles.btnWrapper}>
           <button onClick={publish}>Publish</button>
-          <span onClick={toggleShowScheduleBtn}>Dropdown</span>
+          <IoIosArrowDropdownCircle 
+            className={styles.dropdown}
+            onClick={toggleShowScheduleBtn} 
+          />
         </div>
-        {showScheduleBtn && <button onClick={openModal}>Schedule</button>}
+        {showScheduleBtn && 
+          <button className='secondary-btn' onClick={openModal}>Schedule</button>}
       </div>
     </>
   );

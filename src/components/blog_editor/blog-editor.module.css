@@ -1,0 +1,63 @@
+.h1 {
+  font-size: 2.5rem;
+  margin-top: 0;
+}
+
+.input {
+  width: 100%;
+  padding: 15px 10px;
+  outline: none;
+  border: none;
+  margin-bottom: 20px;
+  transition: all 1s;
+}
+.input:focus {
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.editor {
+  margin-bottom: 20px;
+}
+
+.dropdown {
+  font-size: 2rem;
+}
+
+.btnWrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.dialog {
+  width: 30%;
+  border: none;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.dialog > input {
+  border: 1px solid;
+}
+
+.dBtnWrapper {
+  display: flex;
+  gap: 10px;
+}
+.dBtnWrapper > button {
+  width: 50%;
+}
+
+.xWrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+.x {
+  font-size: 1.5rem;
+  text-align: right;
+  cursor: pointer;
+}
