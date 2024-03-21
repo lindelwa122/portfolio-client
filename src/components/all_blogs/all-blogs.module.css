@@ -1,0 +1,95 @@
+.main {
+  display: grid;
+  grid-template: 250px 200px auto / repeat(4, 1fr);
+  padding: 0 80px;
+}
+.main > * {
+  border: 1px dotted orange;
+}
+
+.header {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.aboutAuthor {
+  grid-column: 1 / span 2;
+  display: flex;
+  gap: 20px;
+}
+.aboutAuthor h3 {
+  margin: 10px 0;
+}
+.aboutAuthor p {
+  font-size: 0.9rem;
+}
+
+.socialMediaLinks {
+  grid-column: 3 / span 2;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.outlet {
+  grid-column: 1 / span 3;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.profileImg {
+  width: 65px;
+  border-radius: 50%;
+}
+
+.logo {
+  font-size: 30px;
+  cursor: pointer;
+}
+.logo:hover {
+  color: purple;
+}
+
+.aside {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.banner {
+  width: 80%;
+  height: 700px;
+  background: orange;
+}
+
+.blog {
+  width: 80%;
+  border-radius: 20px;
+  padding: 20px;
+  cursor: pointer;
+  transition: background-color 0.5s;
+}
+.blog:hover {
+  background-color: #00000015;
+}
+
+.blogDate { 
+  margin: 0;
+}
+
+.blogTitle {
+  margin: 10px 0;
+}
+
+.blogDescr {
+  margin-top: 0;
+  font-size: 0.9rem;
+}
+
+.h1 {
+  margin: 0;
+}
