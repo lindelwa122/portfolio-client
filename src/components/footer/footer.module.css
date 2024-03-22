@@ -1,5 +1,5 @@
 .icon {
-  composes: logo from '../blog_container/blog-container.module.css';
+  composes: logo from '../all_blogs/all-blogs.module.css';
   font-size: 20px !important;
 }
 
