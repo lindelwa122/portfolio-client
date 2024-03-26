@@ -16,6 +16,10 @@
   color: #212529;
 }
 
+.logo {
+  width: 50px;
+}
+
 @media (min-width: 480px) {
   .navbar {
     gap: 70%;

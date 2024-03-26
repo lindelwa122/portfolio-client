@@ -5,6 +5,7 @@ import CreateBlogIndex from './components/create_blog_index/create-blog-index';
 import AllBlogs from './components/all_blogs/all-blogs';
 import BlogEditor from './components/blog_editor/blog-editor';
 import Blog from './components/blog/blog';
+import About from './components/about/about';
 
 const Router = () => {
   const router = createBrowserRouter([
@@ -29,6 +30,10 @@ const Router = () => {
     {
       path: '/blog/:id',
       element: <Blog />,
+    },
+    {
+      path: '/about',
+      element: <About />
     },
   ]);
 

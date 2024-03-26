@@ -10,7 +10,7 @@ const BlogContainer = () => {
       <Navbar />
       <main className={styles.main}>
         <div className={styles.header}>
-          <h1 className={styles.h1}>Our Fresh News</h1>
+          <h1 className={styles.h1}>Thoughts Worth Sharing</h1>
           <p>Stay informed with out bit sized articles</p>
         </div>
 
@@ -22,9 +22,8 @@ const BlogContainer = () => {
             alt='Q . codes social media profile picture.' />
           </div>
           <div>
-            <h3>q.codes</h3>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi reprehenderit quidem nobis tempore necessitatibus ut culpa dolorum eligendi distinctio? Quo!
-            Fugit veritatis temporibus officia quod exercitationem?</p>
+            <h3>justqueue</h3>
+            <p>Creator at heart, constantly exploring new subjects. I spend my time learning how to write and coding some magical stuff. I am obsessed with building beautiful things, and I am starting to share my journey online.</p>
           </div>
         </div>
 
