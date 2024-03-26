@@ -1,7 +1,7 @@
 .main {
-  display: grid;
-  grid-template: 250px 200px auto / repeat(4, 1fr);
-  padding: 0 80px;
+  /* display: grid;
+  grid-template: 250px 200px auto / repeat(4, 1fr); */
+  padding: 0 20px;
 }
 .main > * {
   border: 1px dotted orange;
@@ -17,7 +17,7 @@
 
 .aboutAuthor {
   grid-column: 1 / span 2;
-  display: flex;
+  display: none;
   gap: 20px;
 }
 .aboutAuthor h3 {
@@ -32,6 +32,7 @@
   display: flex;
   gap: 20px;
   justify-content: center;
+  padding: 50px 0;
 }
 
 .outlet {
@@ -55,7 +56,7 @@
 }
 
 .aside {
-  display: flex;
+  display: none;
   justify-content: center;
   padding: 20px 0;
 }
@@ -67,7 +68,6 @@
 }
 
 .blog {
-  width: 80%;
   border-radius: 20px;
   padding: 20px;
   cursor: pointer;
@@ -91,5 +91,44 @@
 }
 
 .h1 {
-  margin: 0;
+  margin-bottom: 0;
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+.mobileAd {
+  padding: 20px;
+}
+
+.mobileAdblock {
+  height: 100px;
+  background-color: orange ;
+}
+
+@media (min-width: 480px) {
+  .main {
+    display: grid;
+    grid-template: 250px 200px auto / repeat(4, 1fr);
+    padding: 0 80px;
+  }
+
+  .h1 {
+    margin: 0;
+  }
+
+  .aboutAuthor {
+    display: flex;
+  }
+
+  .blog {
+    width: 80%;
+  }
+
+  .aside {
+    display: flex;
+  }
+
+  .mobileAd {
+    display: none;
+  }
 }

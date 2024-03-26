@@ -36,6 +36,10 @@ const BlogContainer = () => {
           <BiLogoGmail className={styles.logo} />
         </div>
 
+        <aside className={styles.mobileAd}>
+          <div className={styles.mobileAdblock}></div>
+        </aside>
+
         <div className={styles.outlet}>
           <div className={styles.blog}>
             <p className={styles.blogDate}>Jan 26, 2024</p>

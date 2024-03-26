@@ -21,7 +21,12 @@ const Sidebar = () => {
     </div>
   ));
 
-  return <div className={styles.sidebar}>{draftList}</div>
+  return (
+    <div className={styles.sidebar}>
+      <div className={styles.title}>All Drafts</div>
+      {draftList}
+    </div>
+  );
 }
 
 export default Sidebar;

@@ -4,13 +4,20 @@
   background-color: #183d3d3b;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
+  overflow: hidden;
 }
-.sidebar > div {
+.sidebar > div:not(div:first-child) {
   padding: 20px;
-  border-radius: 20px;
   cursor: pointer;
   transition: background-color 1s;
 }
-.sidebar > div:hover {
+.sidebar > div:not(div:first-child):hover {
+  background-color: #183D3D;
+}
+
+.title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  padding: 10px 20px;
   background-color: #183D3D;
 }
