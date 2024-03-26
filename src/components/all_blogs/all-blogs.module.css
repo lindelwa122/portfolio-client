@@ -109,7 +109,7 @@
   .main {
     display: grid;
     grid-template: 250px 200px auto / repeat(4, 1fr);
-    padding: 0 80px;
+    padding: 0 40px;
   }
 
   .h1 {
@@ -130,5 +130,32 @@
 
   .mobileAd {
     display: none;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 820px) {
+  .aboutAuthor {
+    grid-column: 1 / -1;
+  }
+
+  .socialMediaLinks {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (min-width: 820px) and (max-width: 992px) {
+  .aboutAuthor {
+    grid-column: 1 / span 3;
+  }
+
+  .socialMediaLinks {
+    grid-column: 4 / -1;
+    padding: 20px;
+  }
+}
+
+@media (min-width: 992px) {
+  .main {
+    padding: 0 80px;
   }
 }
