@@ -22,12 +22,24 @@
 
 @media (min-width: 480px) {
   .navbar {
-    gap: 70%;
+    gap: 50%;
     justify-content: flex-start;
   }
 
   .linkWrapper {
     gap: 80px;
     font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 660px) {
+  .navbar {
+    gap: 60%;
+  }
+}
+
+@media (min-width: 820px) {
+  .navbar {
+    gap: 70%;
   }
 }
