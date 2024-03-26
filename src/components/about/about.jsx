@@ -24,7 +24,7 @@ const About = () => {
 
           <p>As I learn new things, I am eager to share them in digestible blogs that might help someone else. Primarily focusing on growth, philosophy, and entrepreneurship, but I will not limit myself to these topics.</p>
 
-          <p>If that sounds interesting, you'd love the content I share on my <a href='https://threads.net/q.codes__'>Threads account.</a></p>
+          <p>If that sounds interesting, you&apos;d love the content I share on my <a href='https://threads.net/q.codes__'>Threads account.</a></p>
         </div>
         <aside className={mobileAd}>
             <div className={mobileAdblock}></div>
