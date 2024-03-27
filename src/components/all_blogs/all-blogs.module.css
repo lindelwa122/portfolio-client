@@ -3,9 +3,6 @@
   grid-template: 250px 200px auto / repeat(4, 1fr); */
   padding: 0 20px;
 }
-.main > * {
-  border: 1px dotted orange;
-}
 
 .header {
   grid-column: 1 / -1;
