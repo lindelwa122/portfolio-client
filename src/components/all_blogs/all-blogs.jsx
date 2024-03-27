@@ -1,5 +1,6 @@
 import { FaGithub, FaInstagram, FaLinkedin, FaThreads } from 'react-icons/fa6';
 import { BiLogoGmail } from 'react-icons/bi';
+import { Link } from 'react-router-dom';
 import Navbar from '../navbar/navbar';
 import Footer from '../footer/footer';
 import styles from './all-blogs.module.css';
@@ -28,11 +29,21 @@ const BlogContainer = () => {
         </div>
 
         <div className={styles.socialMediaLinks}>
-          <FaInstagram className={styles.logo} />
-          <FaGithub className={styles.logo} />
-          <FaThreads className={styles.logo} />
-          <FaLinkedin className={styles.logo} />
-          <BiLogoGmail className={styles.logo} />
+          <Link target='_blank' to='https://instagram.com/q.codes__'>
+            <FaInstagram className={styles.logo} />
+          </Link>
+          <Link target='_blank' to='https://github.com/nqabenhle'>
+            <FaGithub className={styles.logo} />
+          </Link>
+          <Link target='_blank' to='https://threads.net/q.codes__'>
+            <FaThreads className={styles.logo} />
+          </Link>
+          <Link target='_blank' to='https://www.linkedin.com/in/nqabenhle'>
+            <FaLinkedin className={styles.logo} />
+          </Link>
+          <Link target='_blank' to='mailto:nqabenhlemlaba22@gmail.com'>
+            <BiLogoGmail className={styles.logo} />
+          </Link>
         </div>
 
         <aside className={styles.mobileAd}>
