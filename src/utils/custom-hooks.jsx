@@ -78,4 +78,33 @@ const useBlogData = (id) => {
   return { blog, error, loading };
 }
 
-export { useInterval, useDraftsData, useBlogData };
+const useBlogsData = (id) => {
+  const [blogs, setBlogs] = useState(null);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(serverURI + '/blog/published');
+        if (!response.ok) {
+          const err = new Error(`Something wrong occurred. Status: ${response.status}.`);
+          err.status = response.status;
+          throw err;
+        }
+
+        const { blogs } = await response.json();
+        setBlogs(blogs);
+      } catch (err) {
+        setError(err);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchData();
+  }, [id]);
+
+  return { blogs, error, loading };
+}
+
+export { useInterval, useDraftsData, useBlogData, useBlogsData };
