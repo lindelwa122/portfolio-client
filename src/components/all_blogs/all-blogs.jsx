@@ -1,15 +1,86 @@
 import { FaGithub, FaInstagram, FaLinkedin, FaThreads } from 'react-icons/fa6';
 import { BiLogoGmail } from 'react-icons/bi';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { nanoid } from 'nanoid';
+import { format } from 'date-fns';
+
 import Navbar from '../navbar/navbar';
 import Footer from '../footer/footer';
 import styles from './all-blogs.module.css';
+import { useBlogsData } from '../../utils/custom-hooks';
+
+const removeHTMLTags = (str) => {
+  const arr = str.split('');
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === '<') {
+      let delCount = 0;
+      let j = 0;
+      while (true) {
+        if (arr[i + j] !== '>') {
+          delCount++;
+          j++;
+        } else {
+          delCount++;
+          break;
+        }
+      }
+      arr.splice(i, delCount);
+    }
+  }
+
+  return arr.join('');
+}
+
+const limitWords = (str, wordCount) => {
+  const arr = str.split(' ');
+  const newArr = [];
+
+  if (wordCount >= arr.length) {
+    return arr.join(' ');
+  }
+
+  for (let i = 0; i < wordCount; i++) {
+    newArr.push(arr[i]);
+  }
+
+  return newArr.join(' ');
+}
+
+const extractIntro = (content) => {
+  const firstP = content.split('</p>')[0].slice(3);
+  const cleanP = removeHTMLTags(firstP);
+  return limitWords(cleanP, 30) + '...';
+}
 
 const BlogContainer = () => {
+  const { error, blogs, loading } = useBlogsData();
+  const navigate = useNavigate();
+
+  let blogList;
+  if (blogs) {
+    blogList = blogs.map(blog => {
+      console.log(extractIntro(blog.content));
+
+      return (
+        <div 
+          key={nanoid()} 
+          className={styles.blog} 
+          onClick={() => navigate('/blog/' + blog.id)}>
+            <p className={styles.blogDate}>{format(blog.published_on, 'PPP')}</p>
+            <h2 className={styles.blogTitle}>{blog.title}</h2>
+            <p className={styles.blogDescr}>{extractIntro(blog.content)}</p>
+        </div>
+      )
+    });
+  }
+
   return (
     <>
       <Navbar />
-      <main className={styles.main}>
+      {loading && <p style={{ textAlign: 'center' }}>Loading...</p>}
+      {error && <p style={{textAlign: 'center'}}>An error occurred while fetching your blog. Please check your internet connection and try again later.</p>}
+      {blogs && <main className={styles.main}>
         <div className={styles.header}>
           <h1 className={styles.h1}>Thoughts Worth Sharing</h1>
           <p>Stay informed with out bit sized articles</p>
@@ -51,42 +122,13 @@ const BlogContainer = () => {
         </aside>
 
         <div className={styles.outlet}>
-          <div className={styles.blog}>
-            <p className={styles.blogDate}>Jan 26, 2024</p>
-            <h2 className={styles.blogTitle}>Title of the blog</h2>
-            <p className={styles.blogDescr}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio natus voluptas vel modi architecto. Cum quas iste esse totam asperiores?</p>
-          </div>
-          <div className={styles.blog}>
-            <p className={styles.blogDate}>Jan 26, 2024</p>
-            <h2 className={styles.blogTitle}>Title of the blog</h2>
-            <p className={styles.blogDescr}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio natus voluptas vel modi architecto. Cum quas iste esse totam asperiores?</p>
-          </div>
-          <div className={styles.blog}>
-            <p className={styles.blogDate}>Jan 26, 2024</p>
-            <h2 className={styles.blogTitle}>Title of the blog</h2>
-            <p className={styles.blogDescr}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio natus voluptas vel modi architecto. Cum quas iste esse totam asperiores?</p>
-          </div>
-          <div className={styles.blog}>
-            <p className={styles.blogDate}>Jan 26, 2024</p>
-            <h2 className={styles.blogTitle}>Title of the blog</h2>
-            <p className={styles.blogDescr}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio natus voluptas vel modi architecto. Cum quas iste esse totam asperiores?</p>
-          </div>
-          <div className={styles.blog}>
-            <p className={styles.blogDate}>Jan 26, 2024</p>
-            <h2 className={styles.blogTitle}>Title of the blog</h2>
-            <p className={styles.blogDescr}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio natus voluptas vel modi architecto. Cum quas iste esse totam asperiores?</p>
-          </div>
-          <div className={styles.blog}>
-            <p className={styles.blogDate}>Jan 26, 2024</p>
-            <h2 className={styles.blogTitle}>Title of the blog</h2>
-            <p className={styles.blogDescr}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio natus voluptas vel modi architecto. Cum quas iste esse totam asperiores?</p>
-          </div>
+          {blogList}
         </div>
 
         <aside className={styles.aside}>
           <div className={styles.banner}></div>
         </aside>
-      </main>
+      </main>}
       <Footer />
     </>
   );
