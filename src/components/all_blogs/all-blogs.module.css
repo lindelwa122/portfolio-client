@@ -61,7 +61,7 @@
 .banner {
   width: 80%;
   height: 700px;
-  background: orange;
+  /* background: orange; */
 }
 
 .blog {
@@ -99,7 +99,7 @@
 
 .mobileAdblock {
   height: 100px;
-  background-color: orange ;
+  /* background-color: orange ; */
 }
 
 @media (min-width: 480px) {
