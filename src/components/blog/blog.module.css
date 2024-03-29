@@ -22,7 +22,7 @@
   font-weight: 900;
 }
 
-.blogContainer p {
+.blogContainer > div p {
   margin: 0 !important;
 }
 
