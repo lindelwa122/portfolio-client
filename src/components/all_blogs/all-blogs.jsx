@@ -83,7 +83,7 @@ const BlogContainer = () => {
       {blogs && <main className={styles.main}>
         <div className={styles.header}>
           <h1 className={styles.h1}>Thoughts Worth Sharing</h1>
-          <p>Stay informed with out bit sized articles</p>
+          <p>Helping you get small wins in life.</p>
         </div>
 
         <div className={styles.aboutAuthor}>
