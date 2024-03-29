@@ -93,14 +93,13 @@
   font-size: 2.5rem;
 }
 
-/* .mobileAd {
-  padding: 20px;
+.mobileAd {
+  padding: 0px;
 }
 
 .mobileAdblock {
-  height: 100px;
-  background-color: orange ;
-} */
+  height: 0px;
+}
 
 @media (min-width: 480px) {
   .main {
