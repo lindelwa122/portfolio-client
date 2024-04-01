@@ -15,7 +15,7 @@ const About = () => {
             <div className={mobileAdblock}></div>
           </aside>
           <h1 className={styles.h1}>About the Author</h1>
-          <p>Q is an aspiring software engineer teaching himself how to code and write. He spends his time exploring new subjects and constantly seeking new knowledge. Currently, he is delving into topics like psychology, writing, philosophy, human nature, and entrepreneurship.</p>
+          <p>Asanda is an aspiring software engineer teaching himself how to code and write. He spends his time exploring new subjects and constantly seeking new knowledge. Currently, he is delving into topics like psychology, writing, philosophy, human nature, and entrepreneurship.</p>
 
           <p>He is also obsessed with personal growth, always exploring ways to improve and make his life better. He is eager to share all that he learns and document his journey in the hope it inspires someone else to take action.</p>
 
