@@ -101,13 +101,13 @@ const BlogContainer = () => {
         </div>
 
         <div className={styles.socialMediaLinks}>
-          <Link target='_blank' to='https://instagram.com/q.codes__'>
+          <Link target='_blank' to='https://instagram.com/asanda.que__'>
             <FaInstagram className={styles.logo} />
           </Link>
-          <Link target='_blank' to='https://github.com/nqabenhle'>
+          <Link target='_blank' to='https://github.com/lindelwa122'>
             <FaGithub className={styles.logo} />
           </Link>
-          <Link target='_blank' to='https://threads.net/q.codes__'>
+          <Link target='_blank' to='https://threads.net/asanda.que__'>
             <FaThreads className={styles.logo} />
           </Link>
           <Link target='_blank' to='https://www.linkedin.com/in/nqabenhle'>
