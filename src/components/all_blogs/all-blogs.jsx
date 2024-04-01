@@ -92,10 +92,10 @@ const BlogContainer = () => {
             <img
               className={styles.profileImg}
               src={profileImg}
-              alt="Q's headshot" />
+              alt="Asanda's headshot" />
           </div>
           <div>
-            <h3>justqueue</h3>
+            <h3>asanda.que</h3>
             <p>Creator at heart, constantly exploring new subjects. I spend my time learning how to write and coding some magical stuff. I am obsessed with building beautiful things, and I am starting to share my journey online.</p>
           </div>
         </div>
