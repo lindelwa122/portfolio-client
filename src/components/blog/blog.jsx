@@ -1,4 +1,5 @@
 import { useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 import Navbar from '../navbar/navbar';
 import Footer from '../footer/footer';
@@ -12,6 +13,12 @@ const Blog = () => {
 
   return (
     <>
+      {blog && 
+        <Helmet>
+          <title>{blog.title}</title>
+        </Helmet>
+      }
+
       <Navbar />
       {loading && <p style={{textAlign: 'center'}}>Loading...</p>}
       {error && <p style={{textAlign: 'center'}}>An error occurred while fetching your blog. Please check your internet connection and try again later.</p>}

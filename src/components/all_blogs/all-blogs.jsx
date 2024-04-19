@@ -1,5 +1,6 @@
 import { FaGithub, FaInstagram, FaLinkedin, FaThreads } from 'react-icons/fa6';
 import { BiLogoGmail } from 'react-icons/bi';
+import { Helmet } from 'react-helmet';
 import { Link, useNavigate } from 'react-router-dom';
 import { nanoid } from 'nanoid';
 import { format } from 'date-fns';
@@ -76,6 +77,10 @@ const BlogContainer = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Asanda Que - Helping you get small wins in life</title>
+      </Helmet>
+
       <Navbar />
       {loading && <p style={{ textAlign: 'center' }}>Loading...</p>}
       {error && <p style={{textAlign: 'center'}}>An error occurred while fetching your blog. Please check your internet connection and try again later.</p>}

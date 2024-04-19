@@ -2,10 +2,15 @@ import Navbar from '../navbar/navbar';
 import Footer from '../footer/footer';
 import styles from '../blog/blog.module.css';
 import { banner, mobileAd, mobileAdblock } from '../all_blogs/all-blogs.module.css';
+import { Helmet } from 'react-helmet';
 
 const About = () => {
   return (
     <>
+      <Helmet>
+        <title>More about Asanda</title>
+      </Helmet>
+      
       <Navbar />
       <main className={styles.main}>
         <aside className={styles.aside}>
