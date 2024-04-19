@@ -61,13 +61,11 @@ const BlogContainer = () => {
   let blogList;
   if (blogs) {
     blogList = blogs.map(blog => {
-      console.log(extractIntro(blog.content));
-
       return (
         <div 
           key={nanoid()} 
           className={styles.blog} 
-          onClick={() => navigate('/blog/' + blog.id)}>
+          onClick={() => navigate(blog.url)}>
             <p className={styles.blogDate}>{format(blog.published_on, 'PPP')}</p>
             <h2 className={styles.blogTitle}>{blog.title}</h2>
             <p className={styles.blogDescr}>{extractIntro(blog.content)}</p>
