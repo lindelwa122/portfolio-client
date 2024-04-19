@@ -1,7 +1,7 @@
 import { FaGithub, FaInstagram, FaLinkedin, FaThreads } from 'react-icons/fa6';
 import { BiLogoGmail } from 'react-icons/bi';
 import { Helmet } from 'react-helmet';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { nanoid } from 'nanoid';
 import { format } from 'date-fns';
 
@@ -14,20 +14,19 @@ import { useBlogsData } from '../../utils/custom-hooks';
 
 const BlogContainer = () => {
   const { error, blogs, loading } = useBlogsData();
-  const navigate = useNavigate();
 
   let blogList;
   if (blogs) {
     blogList = blogs.map(blog => {
       return (
-        <div 
+        <Link 
           key={nanoid()} 
           className={styles.blog} 
-          onClick={() => navigate(blog.url)}>
+          to={blog.url}>
             <p className={styles.blogDate}>{format(blog.published_on, 'PPP')}</p>
             <h2 className={styles.blogTitle}>{blog.title}</h2>
             <p className={styles.blogDescr}>{extractIntro(blog.content)}</p>
-        </div>
+        </Link>
       )
     });
   }
