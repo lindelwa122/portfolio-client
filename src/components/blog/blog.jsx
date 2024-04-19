@@ -1,5 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import { format } from 'date-fns';
+import { Link } from 'react-router-dom';
 
 import Navbar from '../navbar/navbar';
 import Footer from '../footer/footer';
@@ -32,6 +34,7 @@ const Blog = () => {
           <aside className={mobileAd}>
             <div className={mobileAdblock}></div>
           </aside>
+          <p className={styles.byline}>{format(blog.published_on, 'PPP')} | <Link to='/about'>Asanda Que</Link></p>
           <div dangerouslySetInnerHTML={{ __html: blog.content }}></div>
         </div>
         <aside className={mobileAd}>
