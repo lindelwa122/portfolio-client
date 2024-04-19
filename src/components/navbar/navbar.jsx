@@ -10,7 +10,7 @@ const Navbar = () => {
       </div>
       <div className={styles.linkWrapper}>
         <NavLink to='/about' className={styles.link}>About</NavLink>
-        <NavLink to='/blog' className={styles.link}>Blog</NavLink>
+        <NavLink to='/' className={styles.link}>Blog</NavLink>
       </div>
     </nav>
   );

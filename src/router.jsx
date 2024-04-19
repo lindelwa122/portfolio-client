@@ -6,13 +6,12 @@ import AllBlogs from './components/all_blogs/all-blogs';
 import BlogEditor from './components/blog_editor/blog-editor';
 import Blog from './components/blog/blog';
 import About from './components/about/about';
-import Home from './components/home/home';
 
 const Router = () => {
   const router = createBrowserRouter([
     {
       path: '',
-      element: <Home />,
+      element: <AllBlogs />,
     },
     {
       path: '/blogs/create',
@@ -27,10 +26,6 @@ const Router = () => {
           element: <BlogEditor />,
         }
       ]
-    },
-    {
-      path: '/blog',
-      element: <AllBlogs />,
     },
     {
       path: '/blog/:id',
