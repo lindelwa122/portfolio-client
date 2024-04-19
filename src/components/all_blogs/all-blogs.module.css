@@ -73,6 +73,7 @@
   padding: 20px;
   cursor: pointer;
   transition: background-color 0.5s;
+  font-weight: unset;
 }
 .blog:hover {
   background-color: #00000015;
