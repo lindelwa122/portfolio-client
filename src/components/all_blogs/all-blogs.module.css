@@ -14,14 +14,18 @@
 
 .aboutAuthor {
   grid-column: 1 / span 2;
-  display: none;
-  gap: 20px;
+  display: grid;
+  gap: 0;
+  justify-items: center;
+  text-align: center;
+  margin-top: 20px;
 }
 .aboutAuthor h3 {
   margin: 10px 0;
 }
 .aboutAuthor p {
   font-size: 0.9rem;
+  padding: 0 20px;
 }
 
 .socialMediaLinks {
@@ -114,6 +118,13 @@
 
   .aboutAuthor {
     display: flex;
+    gap: 26px;
+    justify-items: normal;
+    text-align: left;
+    margin-top: 0;
+  }
+  .aboutAuthor p {
+    padding: 0;
   }
 
   .blog {
