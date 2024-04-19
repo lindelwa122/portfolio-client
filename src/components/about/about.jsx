@@ -9,8 +9,9 @@ const About = () => {
     <>
       <Helmet>
         <title>More about Asanda</title>
+        <meta name='description' content='Asanda is an aspiring software engineer teaching himself how to code and write. He spends his time exploring new subjects and constantly seeking new knowledge.' />
       </Helmet>
-      
+
       <Navbar />
       <main className={styles.main}>
         <aside className={styles.aside}>

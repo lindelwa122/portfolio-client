@@ -9,51 +9,8 @@ import Navbar from '../navbar/navbar';
 import Footer from '../footer/footer';
 import styles from './all-blogs.module.css';
 import profileImg from '../../assets/nqabenhle.jpeg';
+import extractIntro from '../../utils/extract-info';
 import { useBlogsData } from '../../utils/custom-hooks';
-
-const removeHTMLTags = (str) => {
-  const arr = str.split('');
-
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] === '<') {
-      let delCount = 0;
-      let j = 0;
-      while (true) {
-        if (arr[i + j] !== '>') {
-          delCount++;
-          j++;
-        } else {
-          delCount++;
-          break;
-        }
-      }
-      arr.splice(i, delCount);
-    }
-  }
-
-  return arr.join('');
-}
-
-const limitWords = (str, wordCount) => {
-  const arr = str.split(' ');
-  const newArr = [];
-
-  if (wordCount >= arr.length) {
-    return arr.join(' ');
-  }
-
-  for (let i = 0; i < wordCount; i++) {
-    newArr.push(arr[i]);
-  }
-
-  return newArr.join(' ');
-}
-
-const extractIntro = (content) => {
-  const firstP = content.split('</p>')[0].slice(3);
-  const cleanP = removeHTMLTags(firstP);
-  return limitWords(cleanP, 30) + '...';
-}
 
 const BlogContainer = () => {
   const { error, blogs, loading } = useBlogsData();
@@ -79,6 +36,7 @@ const BlogContainer = () => {
     <>
       <Helmet>
         <title>Asanda Que - Helping you get small wins in life</title>
+        <meta name='description' content='Discover life-changing ideas with bite-sized advice every week. Conquer the small challenges you face and transform your life.' />
       </Helmet>
 
       <Navbar />

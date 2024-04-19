@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet';
 
 import Navbar from '../navbar/navbar';
 import Footer from '../footer/footer';
+import extractIntro from '../../utils/extract-info';
 import styles from './blog.module.css';
 import { banner, mobileAd, mobileAdblock } from '../all_blogs/all-blogs.module.css';
 import { useBlogData } from '../../utils/custom-hooks';
@@ -16,6 +17,7 @@ const Blog = () => {
       {blog && 
         <Helmet>
           <title>{blog.title}</title>
+          <meta name='description' content={extractIntro(blog.content)} />
         </Helmet>
       }
 
